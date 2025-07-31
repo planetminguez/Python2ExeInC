@@ -15,6 +15,7 @@
  */
 void print_usage(const char* program_name) {
     printf("🐍 Python to Executable Converter\n");
+    printf("******* By @planetminguez *******\n");
     printf("Usage: %s <python_script.py> [output_executable]\n\n", program_name);
     printf("Converts any Python3 script into a standalone executable file\n\n");
     printf("Parameters:\n");
