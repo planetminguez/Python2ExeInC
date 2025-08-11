@@ -11,7 +11,9 @@ A powerful C program that converts any Python3 script into a standalone executab
 - **  Argument Support**: Preserves command-line arguments
 - **  Easy to Use**: Simple command-line interface
 - **  No Dependencies**: Generated executables don't need Python installed
-
+- **  Type make or make all
+- **  Usage: executable <python_script.py>    Thats it! It will place exe in same dir!
+- 
 - ##  Support the Developer
 
 If you find this tool useful, consider supporting the developer:
