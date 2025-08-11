@@ -14,8 +14,9 @@
  * Print usage information
  */
 void print_usage(const char* program_name) {
-    printf("🐍 Python to Executable Converter\n");
-    printf("******* By @planetminguez *******\n");
+    printf("\n");
+    printf("\t\t🐍 Python to Executable Converter🐍\n");
+    printf("\t\t\tBy:@planetminguez 2025©\n\n");
     printf("Usage: %s <python_script.py> [output_executable]\n\n", program_name);
     printf("Converts any Python3 script into a standalone executable file\n\n");
     printf("Parameters:\n");
@@ -256,7 +257,7 @@ int generate_wrapper(const char* python_script, const char* escaped_code, const 
 int compile_wrapper(const char* temp_c_file, const char* output_executable) {
     char compile_cmd[MAX_PATH * 2];
     snprintf(compile_cmd, sizeof(compile_cmd), 
-             "clang -O2 -o \"%s\" \"%s\"", 
+             "clang -O3 -o \"%s\" \"%s\"", 
              output_executable, temp_c_file);
     
     printf("🔨 Compiling executable...\n");
@@ -299,7 +300,7 @@ int convert_python_to_exe(const char* python_script, const char* output_executab
         return 1;
     }
     
-    printf("📊 Script size: %ld bytes\n", script_size);
+    printf(" Script size: %ld bytes\n", script_size);
     
     // Escape Python code for C string
     char* escaped_code = escape_string(python_code);
@@ -362,7 +363,9 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    const char* python_script = argv[1];
+    
+    
+    char* python_script = argv[1];
     char* output_executable = NULL;
     int allocated_output = 0;
     
@@ -378,8 +381,8 @@ int main(int argc, char* argv[]) {
         allocated_output = 1;
     }
     
-    printf("🎯 Input:  %s\n", python_script);
-    printf("🎯 Output: %s\n", output_executable);
+    printf(" Input:  %s\n", python_script);
+    printf(" Output: %s\n", output_executable);
     printf("\n");
     
     // Perform conversion
@@ -390,15 +393,15 @@ int main(int argc, char* argv[]) {
     }
     
     if (result == 0) {
-        printf("\n🎉 Conversion completed successfully!\n");
-        printf("💡 You can now run the executable directly:\n");
+        printf("\n Conversion completed successfully!\n");
+        printf(" You can now run the executable directly:\n\n");
         if (argc == 3) {
-            printf("   ./%s\n", argv[2]);
+            //printf("   ./%s\n", argv[2]);
         } else if (allocated_output) {
-            char* script_copy = strdup(python_script);
-            char* base_name = basename(script_copy);
-            printf("   ./%s\n", base_name);
-            free(script_copy);
+            //char* script_copy = strdup(python_script -2);
+            //char* base_name = basename(script_copy);
+            //printf("   ./%s\n", base_name);
+            //free(script_copy);
         } else {
             printf("   ./%s\n", output_executable);
         }
